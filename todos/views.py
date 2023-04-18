@@ -9,10 +9,12 @@ def show_todo_list(request, id):
     context = {
         "todo_list_object": todo,
     }
-    return render(request, "recipes/detail.html", context)
+    return render(request, "todos/detail.html", context)
 
 
 def todo_list(request):
     todos = TodoList.objects.all()
-    context = {"todo_list": todos}
+    context = {
+        "todo_list": todos,
+    }
     return render(request, "todos/list.html", context)

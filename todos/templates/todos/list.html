@@ -1,4 +1,9 @@
 {% extends "base.html" %}
+
+{% block title %}
+    Todo Lists
+{% endblock title %}
+
 {% block content %}
 <main>
     <div>
@@ -14,7 +19,7 @@
                 {% for list in todo_list %}
                 <tr>
                     <td><a href="{% url 'todo_list_detail' list.id %}">{{ list.name }}</a></td>
-                    <td></td>
+                    <td>{{ todo_list|length }}</td>
                 </tr>
                 {% endfor %}
             </tbody>

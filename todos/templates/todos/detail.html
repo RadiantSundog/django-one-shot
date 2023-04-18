@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+<main>
+    <div>
+        <h1>{{ todo_list_object.name }}</h1>
+        <h2>Tasks</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Due date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in todo_list_object.items.all %}
+                <tr>
+                    <td><a href="{% url 'todo_list_detail' item.id %}">{{ item.task }}</a></td>
+                    <td><a href="{% url 'todo_list_detail' item.id %}">{{ item.due_date }}</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</main>
+{% endblock content %}
